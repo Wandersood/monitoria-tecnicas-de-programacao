@@ -1,0 +1,20 @@
+package controleDisciplinas;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String s1 = "Nelson";
+		Disciplina d1 = new Disciplina();
+		Disciplina d2 = new Disciplina("Tecnicas de Programação", 80.00);
+
+		System.out.println(d2.getNome());
+		/* d2.nome = "Banco de Dados"; */
+		d2.setNome("Banco de Dados");
+		System.out.println(d2.getNome());
+		
+		
+		
+	}
+
+}

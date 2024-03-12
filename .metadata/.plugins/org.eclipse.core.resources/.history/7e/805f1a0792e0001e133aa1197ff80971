@@ -1,0 +1,64 @@
+package controleDisciplinas;
+
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class Main {
+
+	
+	public static void main(String[] args) {
+		ArrayList<Professor> professores = null;
+		boolean ativo = true;
+		String menu = "Sistema de Controle de Disciplinas"
+				+ "\n"
+				+ "Escolha a opção desejada: "
+				+ "\n"
+				+ "1. Cadastrar Professor"
+				+ "2. Cadastrar Disciplina"
+				+ "3. Consultar Professor por Disciplina"
+				+ "4. Consutar Professor por Titulação"
+				+ "0. Sair";
+		
+		do {
+			int escolha = Integer.parseInt(JOptionPane.showInputDialog(menu));
+			
+			switch (escolha) {
+			case 1:
+				String nome = JOptionPane.showInputDialog("Informe o nome do professor:");
+				String titulacao = JOptionPane.showInputDialog("Informe a titulação máxima do professor:");
+				double carga_horaria = Double.parseDouble(JOptionPane.showInputDialog("Informe a carga horária do professor:"));
+				Professor novoProfessor = new Professor(nome, titulacao, carga_horaria);
+				professores.add(novoProfessor);
+				int numero_disciplinas = Integer.parseInt(JOptionPane.showInputDialog("Quantas disciplinas são ministradas pelo professor?"));
+				Disciplina disciplina;
+				for (int i = 0; i < numero_disciplinas; i++) {
+					String nomeDisc = JOptionPane.showInputDialog("Informe o nome da disciplina: ");
+					double carga_horariaDisc = Double.parseDouble(JOptionPane.showInputDialog("Informe a carga horária da disciplina: "));
+					disciplina = new Disciplina(nomeDisc, carga_horariaDisc);
+					novoProfessor.adicionarDisciplina(disciplina, novoProfessor);
+				}
+				
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 0:
+				ativo = false;
+				System.out.println("Obrigado por utilizar o sistema!");
+				break;
+			
+
+			default:
+				System.out.println("Opção inválida!");
+			}
+			
+			
+		} while (ativo);
+		
+	}
+
+}

@@ -1,0 +1,24 @@
+package controleDisciplinas;
+
+public class Disciplina {
+
+	public String nome;
+	private double carga_horaria;
+	
+	public Disciplina() {
+		
+	}
+	
+	public Disciplina(String nome, double carga_horaria) {
+		this.nome = nome;
+		this.carga_horaria = carga_horaria;
+	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\nCarga Horaria: " + carga_horaria;
+	}
+	
+}
+
+

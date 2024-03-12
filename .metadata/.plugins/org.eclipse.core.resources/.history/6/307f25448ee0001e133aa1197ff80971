@@ -1,0 +1,68 @@
+package controleDisciplinas;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Professor {
+	
+	private String nome;
+	private String titulacao_maxima;
+	private double carga_horaria;
+	private ArrayList<Disciplina> disciplinas;
+	
+	public Professor() {}
+
+	public Professor(String nome, String titulacao_maxima, double carga_horaria) {
+		this.nome = nome;
+		this.titulacao_maxima = titulacao_maxima;
+		this.carga_horaria = carga_horaria;
+	}
+	
+	public void mostrarDisciplinas() {
+		for (Disciplina disciplina: disciplinas) {
+			System.out.println(disciplina);
+		}
+		
+		/*for (int i = 0; i < disciplinas.size(); i++) {
+			System.out.println(disciplinas.get(i));
+		}*/
+	}
+	
+	public void adicionarDisciplina(Disciplina disciplina, Professor professor) {
+		disciplinas.add(disciplina);
+		disciplina.setProfessor(professor);
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getTitulacaoMaxima() {
+		return titulacao_maxima;
+	}
+
+	public void setTitulacaoMaxima(String titulacao_maxima) {
+		this.titulacao_maxima = titulacao_maxima;
+	}
+
+	public double getCargaHoraria() {
+		return carga_horaria;
+	}
+
+	public void setCargaHoraria(double carga_horaria) {
+		this.carga_horaria = carga_horaria;
+	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + nome + ", Titulação Maxima: " + titulacao_maxima + ", Carga Horaria: " + carga_horaria;
+	}
+	
+	
+	
+
+}
