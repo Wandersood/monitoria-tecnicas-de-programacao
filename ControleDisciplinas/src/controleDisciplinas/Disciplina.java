@@ -1,26 +1,40 @@
 package controleDisciplinas;
 
+import java.util.ArrayList;
+
 public class Disciplina {
 
 	private String nome;
-	private double carga_horaria;
+	private double cargaHoraria;
 	private Professor professor;
+	private static ArrayList<Disciplina> listaDisciplinas = new ArrayList<Disciplina>();
 	
 	public Disciplina() {
-		
+		listaDisciplinas.add(this);
 	}
 	
-	public Disciplina(String nome, double carga_horaria) {
+	public Disciplina(String nome, double cargaHoraria) {
 		this.nome = nome;
-		this.carga_horaria = carga_horaria;
+		this.cargaHoraria = cargaHoraria;
+		listaDisciplinas.add(this);
 	}
 	
-	public Disciplina(String nome, double carga_horaria, Professor professor) {
+	public Disciplina(String nome, double cargaHoraria, Professor professor) {
 		this.nome = nome;
-		this.carga_horaria = carga_horaria;
+		this.cargaHoraria = cargaHoraria;
 		this.professor = professor;
+		listaDisciplinas.add(this);
 	}
 
+	public static Professor buscarProfessorDeDisciplina(String nomeDisc) {
+		for (Disciplina disciplina: listaDisciplinas) {
+	        if (disciplina.nome.equalsIgnoreCase(nomeDisc)) {
+	            return disciplina.professor;
+	        }
+	    }
+	    return null;
+	}
+	
 	public String getNome() {
 		return this.nome;
 	}
@@ -30,11 +44,11 @@ public class Disciplina {
 	}
 	
 	public double getCargaHoraria() {
-		return this.carga_horaria;
+		return this.cargaHoraria;
 	} 
 	
 	public void setCargaHoraria(double carga_horaria) {
-		this.carga_horaria = carga_horaria;
+		this.cargaHoraria = carga_horaria;
 	}
 	
 	public Professor getProfessor() {
@@ -45,9 +59,13 @@ public class Disciplina {
 		this.professor = professor;
 	}
 	
+	public static ArrayList<Disciplina> getListaDisciplinas() {
+		return listaDisciplinas;
+	}
+	
 	@Override
 	public String toString() {
-		return "Nome: " + nome + ", Carga Horaria: " + carga_horaria;
+		return "\nNome: " + nome + "\nCarga Horária: " + cargaHoraria + "\nProfessor: " + professor + "\n";
 	}
 	
 }

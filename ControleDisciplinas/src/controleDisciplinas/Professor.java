@@ -5,33 +5,40 @@ import java.util.ArrayList;
 public class Professor {
 	
 	private String nome;
-	private String titulacao_maxima;
-	private double carga_horaria;
-	private ArrayList<Disciplina> disciplinas;
+	private String titulacaoMaxima;
+	private double cargaHoraria;
+	private static ArrayList<Professor> listaProfessores = new ArrayList<Professor>();
 	
-	public Professor() {}
+	public Professor() {
+		listaProfessores.add(this);
+	}
 
-	public Professor(String nome, String titulacao_maxima, double carga_horaria) {
+	public Professor(String nome, String titulacaoMaxima, double cargaHoraria) {
 		this.nome = nome;
-		this.titulacao_maxima = titulacao_maxima;
-		this.carga_horaria = carga_horaria;
+		this.titulacaoMaxima = titulacaoMaxima;
+		this.cargaHoraria = cargaHoraria;
+		listaProfessores.add(this);
 	}
 	
-	public void mostrarDisciplinas() {
-		for (Disciplina disciplina: disciplinas) {
-			System.out.println(disciplina);
-		}
-		
-		/*for (int i = 0; i < disciplinas.size(); i++) {
-			System.out.println(disciplinas.get(i));
-		}*/
+	public static ArrayList<Professor> buscarPorTitulacao(String titulacao) {
+		ArrayList<Professor> listaAuxiliar = new ArrayList<Professor>();
+		listaProfessores.forEach(professor -> {
+			if (professor.titulacaoMaxima.equalsIgnoreCase(titulacao)) {
+				listaAuxiliar.add(professor);
+			}
+		});
+		return listaAuxiliar;
 	}
 	
-	public void adicionarDisciplina(Disciplina disciplina, Professor professor) {
-		disciplinas.add(disciplina);
-		disciplina.setProfessor(professor);
+	public static Professor buscarPorNome(String nome) {
+		for (Professor professor : listaProfessores) {
+	        if (professor.nome.equalsIgnoreCase(nome)) {
+	            return professor;
+	        }
+	    }
+	    return null;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
@@ -41,24 +48,28 @@ public class Professor {
 	}
 
 	public String getTitulacaoMaxima() {
-		return titulacao_maxima;
+		return titulacaoMaxima;
 	}
 
-	public void setTitulacaoMaxima(String titulacao_maxima) {
-		this.titulacao_maxima = titulacao_maxima;
+	public void setTitulacaoMaxima(String titulacaoMaxima) {
+		this.titulacaoMaxima = titulacaoMaxima;
 	}
 
 	public double getCargaHoraria() {
-		return carga_horaria;
+		return cargaHoraria;
 	}
 
-	public void setCargaHoraria(double carga_horaria) {
-		this.carga_horaria = carga_horaria;
+	public void setCargaHoraria(double cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
+	public static ArrayList<Professor> getListaProfessores() {
+		return listaProfessores;
 	}
 
 	@Override
 	public String toString() {
-		return "Nome: " + nome + ", Titula��o Maxima: " + titulacao_maxima + ", Carga Horaria: " + carga_horaria;
+		return "\nNome: " + nome + "\nTitulação Máxima: " + titulacaoMaxima + "\nCarga Horária: " + cargaHoraria + "\n";
 	}
 	
 	
