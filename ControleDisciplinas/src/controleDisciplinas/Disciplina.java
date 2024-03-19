@@ -7,6 +7,7 @@ public class Disciplina {
 	private String nome;
 	private double cargaHoraria;
 	private Professor professor;
+	
 	private static ArrayList<Disciplina> listaDisciplinas = new ArrayList<Disciplina>();
 	
 	public Disciplina() {
@@ -27,6 +28,7 @@ public class Disciplina {
 	}
 
 	public static Professor buscarProfessorDeDisciplina(String nomeDisc) {
+			
 		for (Disciplina disciplina: listaDisciplinas) {
 	        if (disciplina.nome.equalsIgnoreCase(nomeDisc)) {
 	            return disciplina.professor;
@@ -36,29 +38,29 @@ public class Disciplina {
 	}
 	
 	public String getNome() {
-		return this.nome;
+		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public double getCargaHoraria() {
-		return this.cargaHoraria;
-	} 
-	
-	public void setCargaHoraria(double carga_horaria) {
-		this.cargaHoraria = carga_horaria;
+		return cargaHoraria;
 	}
-	
+
+	public void setCargaHoraria(double cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
 	public Professor getProfessor() {
-		return this.professor;
+		return professor;
 	}
-	
+
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
-	
+
 	public static ArrayList<Disciplina> getListaDisciplinas() {
 		return listaDisciplinas;
 	}

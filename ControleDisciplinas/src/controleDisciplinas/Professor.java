@@ -7,6 +7,7 @@ public class Professor {
 	private String nome;
 	private String titulacaoMaxima;
 	private double cargaHoraria;
+	
 	private static ArrayList<Professor> listaProfessores = new ArrayList<Professor>();
 	
 	public Professor() {
