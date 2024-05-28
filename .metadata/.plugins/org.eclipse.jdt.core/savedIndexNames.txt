@@ -1,4 +1,2 @@
-INDEX VERSION 1.131+C:\Users\FATEC ZONA LESTE\eclipse-workspace\monitoria-tecnicas-de-programacao\.metadata\.plugins\org.eclipse.jdt.core
-4044757637.index
+INDEX VERSION 1.134+Z:\monitoria-tecnicas-de-programacao\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
-3152049234.index
